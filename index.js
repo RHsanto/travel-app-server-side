@@ -48,7 +48,8 @@ async function run() {
    app.get('/blogData', async (req,res)=>{
     const cursor = blogCollection.find({});
     const offers = await cursor.toArray();
-    res.send(offers);
+    const count = await cursor.count()
+    res.send({offers ,count});
 
    });
     // GET API OFFERS
